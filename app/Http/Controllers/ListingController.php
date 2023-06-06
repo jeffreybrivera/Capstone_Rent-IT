@@ -34,6 +34,7 @@ class ListingController extends Controller
         $request->validate([
             'property_name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
+            'status' => ['required', 'string', 'max:255'],
         ]);
 
         Listing::create([
@@ -41,7 +42,8 @@ class ListingController extends Controller
             'location' => $request->location,
             'floor_area' => $request->floor_area,
             'rental_fee' => $request->rental_fee,
-            'other_features' => $request->other_features
+            'other_features' => $request->other_features,
+            'status' => $request->status
         ]);
         return redirect('/listings')->with('message', 'The listing has been posted!');
     }
@@ -70,6 +72,7 @@ class ListingController extends Controller
         $request->validate([
             'property_name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
+            'status' => ['required', 'string', 'max:255'],
         ]);
 
         $listing->update([
@@ -77,7 +80,8 @@ class ListingController extends Controller
             'location' => $request->location,
             'floor_area' => $request->floor_area,
             'rental_fee' => $request->rental_fee,
-            'other_features' => $request->other_features
+            'other_features' => $request->other_features,
+            'status' => $request->status    
         ]);
         return redirect('/listings')->with('message', 'The listing has been updated!');
     }
