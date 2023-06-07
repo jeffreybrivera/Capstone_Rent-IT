@@ -16,6 +16,6 @@ class Listing extends Model
         'rental_fee',
         'other_features',
         'status',
-        'picture'
+        'image'
     ];
 }
